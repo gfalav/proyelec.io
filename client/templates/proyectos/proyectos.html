@@ -1,0 +1,21 @@
+<template name="proyectos">
+	<h3>Proyectos Eléctricos</h3>
+
+	<ul>
+		{{#each proyectosList}}
+		<li>{{>proyectoDetalle }}</li>
+		{{/each}}
+	</ul>
+
+</template>
+
+<template name="proyectoDetalle">
+	<b>{{nombre}}</b><br/>
+	<b>Comitente: </b>{{comitente}}<br/>
+	<b>Ubicación: </b>{{ubicacion}}<br/>
+	<b>Expediente: </b>{{expediente}}<br/>
+</template>
+
+<template name="proyectoInsert">
+	{{>quickForm id="proyectosInsert" collection="Proyectos" type="insert" }}
+</template>
