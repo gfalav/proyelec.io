@@ -1,0 +1,17 @@
+body {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1.35em;
+}
+
+.pie {
+	background-color: black;
+	color: white;
+	padding: 5px;
+	margin-top: 20px;
+	font-size: 0.7em;
+}
+
+.principal {
+	min-height: 580px;
+	font-size: 0.85em;
+}
