@@ -1,5 +1,5 @@
-Template.proyectos.helpers({
-	proyectosList: function() {
+Template.proyectosList.helpers({
+	proyectosVar: function() {
 		return Proyectos.find();
 	}
 })

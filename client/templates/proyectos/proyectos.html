@@ -1,11 +1,13 @@
-<template name="proyectos">
+<template name="proyectosList">
 	<h3>Proyectos Eléctricos</h3>
 
-	<ul>
-		{{#each proyectosList}}
-		<li>{{>proyectoDetalle }}</li>
+	<div class="list-group">
+
+		{{#each proyectosVar}}
+		<a href="#" class="list-group-item">{{>proyectoDetalle }}</a>
 		{{/each}}
-	</ul>
+	
+	</div>
 
 </template>
 
