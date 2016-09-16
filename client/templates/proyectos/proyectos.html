@@ -4,7 +4,7 @@
 	<div class="list-group">
 
 		{{#each proyectosVar}}
-		<a href="#" class="list-group-item">{{>proyectoDetalle }}</a>
+		<a href="{{ pathFor '/proyectos/:id' id=this._id }} " class="list-group-item">{{>proyectoDetalle }}</a>
 		{{/each}}
 	
 	</div>

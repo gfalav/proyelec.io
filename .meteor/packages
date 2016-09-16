@@ -26,3 +26,4 @@ kadira:blaze-layout
 twbs:bootstrap
 autopublish
 insecure
+arillo:flow-router-helpers

@@ -3,3 +3,18 @@ Template.proyectosList.helpers({
 		return Proyectos.find();
 	}
 })
+
+
+AutoForm.hooks({
+	proyectosInsert: {
+
+		onSuccess: function(formType, result) {
+			FlowRouter.go('/proyectos');
+		},
+
+		onError: function(formType, error) {
+			alert(error);
+		}
+   
+	}
+});
