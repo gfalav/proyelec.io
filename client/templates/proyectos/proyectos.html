@@ -1,14 +1,17 @@
 <template name="proyectosList">
 	<h3>Proyectos Eléctricos</h3>
 
-	<div class="list-group">
+	 {{#if (Template.subscriptionsReady) }}
+		<div class="list-group">
 
-		{{#each proyectosVar}}
-		<a href="{{ pathFor '/proyectos/:id' id=this._id }} " class="list-group-item">{{>proyectoDetalle }}</a>
-		{{/each}}
-	
-	</div>
-
+			{{#each proyectosVar}}
+			<a href="{{ pathFor '/proyectos/:id' id=this._id }} " class="list-group-item">{{>proyectoDetalle }}</a>
+			{{/each}}
+		
+		</div>
+	{{else}}
+		{{>loading}}
+	{{/if}}
 </template>
 
 <template name="proyectoDetalle">
@@ -18,6 +21,16 @@
 	<b>Expediente: </b>{{expediente}}<br/>
 </template>
 
+<template name="proyectosShow">
+	{{>quickForm id="proyectosInsert" collection="Proyectos" type="readonly" doc=proyectoVar }}
+
+	<a href="{{pathFor '/proyectos/:id/edit' id=proyectoVar._id }}" class="btn btn-danger">Edita</a>
+</template>
+
 <template name="proyectoInsert">
 	{{>quickForm id="proyectosInsert" collection="Proyectos" type="insert" }}
+</template>
+
+<template name="proyectosUpdate">
+	{{>quickForm id="proyectosInsert" collection="Proyectos" type="update" doc=proyectoVar }}
 </template>
