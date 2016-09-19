@@ -27,3 +27,4 @@ twbs:bootstrap
 arillo:flow-router-helpers
 sacha:spin
 ongoworks:security
+dburles:google-maps
