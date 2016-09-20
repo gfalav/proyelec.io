@@ -12,6 +12,7 @@
 	{{else}}
 		{{>loading}}
 	{{/if}}
+	<a href="{{pathFor '/proyectos/new' }}" class="btn btn-danger">New</a>
 </template>
 
 <template name="proyectoDetalle">
@@ -25,12 +26,16 @@
 	{{>quickForm id="proyectosInsert" collection="Proyectos" type="readonly" doc=proyectoVar }}
 
 	<a href="{{pathFor '/proyectos/:id/edit' id=proyectoVar._id }}" class="btn btn-danger">Edita</a>
+	<a href="{{pathFor '/proyectos' }}" class="btn btn-info">Back</a>
+	<a href="{{pathFor '/map/:proyectoId' proyectoId=proyectoVar._id }}" class="btn btn-primary">Puntos</a>
 </template>
 
 <template name="proyectoInsert">
 	{{>quickForm id="proyectosInsert" collection="Proyectos" type="insert" }}
+	<a href="{{pathFor '/proyectos' }}" class="btn btn-info">Back</a>
 </template>
 
 <template name="proyectosUpdate">
 	{{>quickForm id="proyectosInsert" collection="Proyectos" type="update" doc=proyectoVar }}
+	<a href="{{pathFor '/proyectos' }}" class="btn btn-info">Back</a>
 </template>

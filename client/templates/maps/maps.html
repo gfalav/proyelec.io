@@ -1,14 +1,34 @@
 <template name="map">
 
   	<div class="col-xs-12 col-sm-12">
-	  	<div class="col-xs-6 col-sm-6">
-	  	lista de puntos aca
+	  	<div class="col-xs-4 col-sm-4">
+
+			<h3>Puntos Singulares del Proyecto</h3>
+
+			 {{#if (Template.subscriptionsReady) }}
+				<div class="list-group">
+
+					{{#each puntosarr}}
+					<a href="{{ pathFor '/puntos/:id' id=this._id }} " class="list-group-item">{{>puntoDetalle }}</a>
+					{{/each}}
+				
+				</div>
+			{{else}}
+				{{>loading}}
+			{{/if}}
+
+
+
 	  	</div>
 
-	  	<div class="col-xs-6 col-sm-6">
+	  	<div class="col-xs-8 col-sm-8">
 			<div class="map-container">
 				{{> googleMap name="map" options=mapOptions}}
 			</div>
 		</div>
 	</div>
 </template>  
+
+<template name="puntoDetalle">
+	<strong>{{nombre}}: Latitud </strong>{{latitud}}, <strong>Longitud </strong>{{longitud}}<strong> - Ang: </strong>{{angulo}}<strong> - Dist: </strong>{{distancia}}
+</template>
