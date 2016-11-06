@@ -1,0 +1,30 @@
+<template name="materialsList">
+	<h3>Materiales Eléctricos</h3>
+
+	 {{#if (Template.subscriptionsReady) }}
+		<div class="list-group">
+
+			{{#each materialsVar}}
+			<a href="{{ pathFor '/materials/:id' id=this._id }} " class="list-group-item">{{>materialDetalle }}</a>
+			{{/each}}
+		
+		</div>
+	{{else}}
+		{{>loading}}
+	{{/if}}
+	<a href="{{pathFor '/materials/new' }}" class="btn btn-danger">New</a>
+</template>
+
+<template name="materialDetalle">
+	<b>{{nombre}}</b>
+</template>
+
+<template name="materialsShow">
+
+	{{>quickForm id="materialsShow" collection="Materials" type="readonly" doc=materialVar }}
+
+	<embed src="{{materialFile}}.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+
+	<a href="{{pathFor '/materials/:id/edit' id=proyectoVar._id }}" class="btn btn-danger">Edit</a>
+	<a href="{{pathFor '/materials' }}" class="btn btn-info">Back</a>
+</template>
