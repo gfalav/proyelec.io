@@ -23,8 +23,18 @@
 
 	{{>quickForm id="materialsShow" collection="Materials" type="readonly" doc=materialVar }}
 
-	<embed src="{{materialFile}}.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+	<embed src="{{materialFile}}" width="90%" height="1200"><br/>
 
-	<a href="{{pathFor '/materials/:id/edit' id=proyectoVar._id }}" class="btn btn-danger">Edit</a>
+	<a href="{{pathFor '/materials/:id/edit' id=materialVar._id }}" class="btn btn-danger">Edit</a>
+	<a href="{{pathFor '/materials' }}" class="btn btn-info">Back</a>
+</template>
+
+<template name="materialInsert">
+	{{>quickForm id="materialsInsert" collection="Materials" type="insert" }}
+	<a href="{{pathFor '/materials' }}" class="btn btn-info">Back</a>
+</template>
+
+<template name="materialsUpdate">
+	{{>quickForm id="materialsInsert" collection="Materials" type="update" doc=materialVar }}
 	<a href="{{pathFor '/materials' }}" class="btn btn-info">Back</a>
 </template>

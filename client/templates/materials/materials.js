@@ -4,7 +4,7 @@ Template.materialsList.onCreated(function() {
 
 Template.materialsList.helpers({
 	materialsVar: function() {
-		return Materials.find();
+		return Materials.find({},{sort: {nombre: 1}});
 	}
 })
 
@@ -20,6 +20,20 @@ Template.materialsShow.helpers({
 	},
 	materialFile: function() {
 		var Id = FlowRouter.getParam('id');
-		return Materials.findOne({"_id": Id}).file;
+		var file = Materials.findOne({"_id": Id}).file;
+		file = "/pdfs/" + file + ".pdf";
+		return file;
+	}
+})
+
+Template.materialsUpdate.onCreated(function() {
+	var proyId = FlowRouter.getParam('id');
+    Meteor.subscribe('MaterialsPublish', proyId);  
+});
+
+Template.materialsUpdate.helpers({
+	materialVar: function() {
+		var proyId = FlowRouter.getParam('id');
+		return Materials.findOne({"_id": proyId});
 	}
 })
