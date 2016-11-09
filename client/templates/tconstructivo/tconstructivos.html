@@ -1,0 +1,40 @@
+<template name="tconstructivosList">
+	<h3>Tipos Constructivos</h3>
+
+	 {{#if (Template.subscriptionsReady) }}
+		<div class="list-group">
+
+			{{#each tconstructivosVar}}
+			<a href="{{ pathFor '/tconstructivos/:id' id=this._id }} " class="list-group-item">{{>tconstructivoDetalle }}</a>
+			{{/each}}
+		
+		</div>
+	{{else}}
+		{{>loading}}
+	{{/if}}
+	<a href="{{pathFor '/tconstructivos/new' }}" class="btn btn-danger">New</a>
+</template>
+
+<template name="tconstructivoDetalle">
+	<b>{{nombre}}</b><img src="{{tconstructivoFile}}" class="img-responsive" />
+</template>
+
+<template name="tconstructivosShow">
+
+	{{>quickForm id="tconstructivosShow" collection="Tconstructivos" type="readonly" doc=tconstructivoVar }}
+
+	<img src="{{tconstructivoFile}}" class="img-responsive" />
+
+	<a href="{{pathFor '/tconstructivos/:id/edit' id=tconstructivoVar._id }}" class="btn btn-danger">Edit</a>
+	<a href="{{pathFor '/tconstructivos' }}" class="btn btn-info">Back</a>
+</template>
+
+<template name="tconstructivoInsert">
+	{{>quickForm id="tconstructivosInsert" collection="Materials" type="insert" }}
+	<a href="{{pathFor '/tconstructivos' }}" class="btn btn-info">Back</a>
+</template>
+
+<template name="tconstructivosUpdate">
+	{{>quickForm id="tconstructivosInsert" collection="Materials" type="update" doc=tconstructivoVar }}
+	<a href="{{pathFor '/tconstructivos' }}" class="btn btn-info">Back</a>
+</template>
