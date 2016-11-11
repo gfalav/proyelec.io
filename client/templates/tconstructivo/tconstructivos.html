@@ -16,7 +16,14 @@
 </template>
 
 <template name="tconstructivoDetalle">
-	<b>{{nombre}}</b><img src="{{tconstructivoFile}}" class="img-responsive" />
+	<div class="col-xs-12 col-sm-12">
+		<div class="col-xs-3 col-sm-3">
+			<b>{{nombre}}</b>
+		</div>
+		<div class="col-xs-3 col-sm-3">
+			<img src="/images/{{file}}.png" class="img-responsive" />
+		</div>
+	</div>
 </template>
 
 <template name="tconstructivosShow">
